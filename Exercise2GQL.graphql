@@ -1,0 +1,32 @@
+# URL: https://countries.trevorblades.com/
+
+# QUERY
+query{
+  country(code: "MX")
+  {
+    name
+    emoji
+    phone
+    languages
+    {
+      name
+    }
+  }
+}
+
+
+# RESULT
+{
+  "data": {
+    "country": {
+      "name": "Mexico",
+      "emoji": "🇲🇽",
+      "phone": "52",
+      "languages": [
+        {
+          "name": "Spanish"
+        }
+      ]
+    }
+  }
+}
