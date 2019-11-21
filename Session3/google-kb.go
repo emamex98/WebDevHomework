@@ -24,7 +24,7 @@ type gkb struct {
 
 func main() { 
 
-	resp, err := http.Get("https://kgsearch.googleapis.com/v1/entities:search?query=tecnologico+de+monterrey&key=[ApiKey]&indent=True") 
+	resp, err := http.Get("https://kgsearch.googleapis.com/v1/entities:search?query=tecnologico+de+monterrey&key=[ApiKey]&limit=1&indent=True") 
 
 	if err != nil { 
 		log.Fatalln(err) 
@@ -37,12 +37,15 @@ func main() {
 		log.Fatalln(err) 
 	}
 
-	var bodyJsonString string = string(body)
+	var bodyJsonString string = strings.ReplaceAll(string(body),"@","")
+	log.Println(bodyJsonString)
+
 	var resultStruct gkb
 
 	json.Unmarshal([]byte(bodyJsonString), &resultStruct)
 
-	log.Println("Google Knowledge Graph knows that", resultStruct.ItemListElement[0].Result.Name, "is a", resultStruct.ItemListElement[0].Result.Description, "with an accuracy score of", resultStruct.ItemListElement[0].ResultScore)
 
+	log.Println("Result")
+	log.Println("Google Knowledge Graph knows that", resultStruct.ItemListElement[0].Result.Name, "is a", resultStruct.ItemListElement[0].Result.Description, "with an accuracy score of", resultStruct.ItemListElement[0].ResultScore)
 
 }
