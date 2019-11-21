@@ -5,6 +5,7 @@ import (
 	"log" 
 	"net/http" 
 	"encoding/json"
+	"strings"
 )
 
 type result struct {
