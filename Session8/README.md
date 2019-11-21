@@ -5,3 +5,4 @@ Actividades realizadas:
 - Rust (Presentacion)
 - Redis
 - PubNub
+- Consulta a BdD nuestra con GoLang
